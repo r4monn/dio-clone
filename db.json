@@ -4,13 +4,13 @@
       "id": 1,
       "name": "Ramon",
       "email": "ramon@email.com",
-      "password": 152525
+      "password": 123456
     },
     {
       "id": 2,
       "name": "Nelson",
       "email": "nelson@email.com",
-      "password": 152525
+      "password": 123456
     }
   ]
 }

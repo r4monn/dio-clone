@@ -22,6 +22,7 @@ import {
 } from './styles';
 
 import { api } from '../../services/api';
+import { FormData } from "./types";
 
 const schema = yup.object({
   email: yup.string().email('Este e-mail não é válido').required('Campo obrigatório'),
@@ -30,14 +31,14 @@ const schema = yup.object({
 
 export function Login() {
 
-  const { control, handleSubmit, formState: { errors } } = useForm({
+  const { control, handleSubmit, formState: { errors } } = useForm<FormData>({
     resolver: yupResolver(schema),
     mode: 'onChange'
   });
 
-  const onSubmit = async (formData) => {
+  const onSubmit = async (formData: FormData) => {
     try {
-      const { data } = await api.get(`/users?email=${formData.email}&senha=${formData.senha}`);
+      const { data } = await api.get(`/users?email=${formData.email}&senha=${formData.password}`);
 
       if (data.length === 1) {
         navigate('/feed')

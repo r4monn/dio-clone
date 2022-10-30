@@ -11,6 +11,7 @@ export function Feed() {
       <Header authenticated={true} />
       <Container>
         <Column flex={3}>
+          <Title>Feed</Title>
           <Card />
           <Card />
           <Card />

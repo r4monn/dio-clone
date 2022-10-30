@@ -10,8 +10,9 @@ import {
   UserPicture,
   Wrapper
 } from './styles';
+import { HeaderProps } from './types';
 
-export function Header({ authenticated }) {
+export function Header({ authenticated }: HeaderProps) {
   return (
     <Wrapper>
       <Container>
@@ -32,7 +33,7 @@ export function Header({ authenticated }) {
             </>
           ) : (
             <>
-              <MenuRight href='#'>Home</MenuRight>
+              <MenuRight href='/'>Home</MenuRight>
               <Button title="Entrar"></Button>
               <Button title="Cadastrar"></Button>
             </>
