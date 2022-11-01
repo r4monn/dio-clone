@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo-dio.png';
 import { Button } from '../Button';
 import {
@@ -13,6 +14,16 @@ import {
 import { HeaderProps } from './types';
 
 export function Header({ authenticated }: HeaderProps) {
+  const navigate = useNavigate();
+
+  const handleClickSignIn = () => {
+    navigate('/login')
+  }
+
+  const handleClickSignUp = () => {
+    navigate('/cadastro')
+  }
+
   return (
     <Wrapper>
       <Container>
@@ -22,6 +33,7 @@ export function Header({ authenticated }: HeaderProps) {
             <BuscarInputContainer>
               <Input placeholder='Buscar...' />
             </BuscarInputContainer>
+            <Menu>Home</Menu>
             <Menu>Live Code</Menu>
             <Menu>Global</Menu>
           </> : null}
@@ -34,8 +46,8 @@ export function Header({ authenticated }: HeaderProps) {
           ) : (
             <>
               <MenuRight href='/'>Home</MenuRight>
-              <Button title="Entrar"></Button>
-              <Button title="Cadastrar"></Button>
+              <Button title="Entrar" onClick={handleClickSignIn}></Button>
+              <Button title="Cadastrar" onClick={handleClickSignUp}></Button>
             </>
           )
           }
